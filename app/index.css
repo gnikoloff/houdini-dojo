@@ -1,0 +1,10 @@
+h1 {
+  --stroke-width: 2;
+  --stroke-color: orange;
+  --helper-point-radius: 10;
+  --helper-point-background-color: red;
+  --helper-point-accent-color: yellow;
+
+  height: 200px;
+  background: paint(bezier-curves);
+}

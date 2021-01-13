@@ -1,2 +1,5 @@
-const a = (({ b = 12 } = {}) => ({ b }))()
-console.log(a)
+import './index.css'
+
+
+
+CSS.paintWorklet.addModule('paint-worklets/bezier-curves.js')

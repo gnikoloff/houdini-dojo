@@ -1,4 +1,5 @@
 import copy from 'rollup-plugin-copy'
+import css from 'rollup-plugin-css-only'
 
 export default {
   input: [
@@ -14,6 +15,7 @@ export default {
       targets: [
         { src: 'index.html', dest: 'dist' }
       ]
-    })
+    }),
+    css({ output: 'index.css' })
   ]
 }
