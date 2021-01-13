@@ -1,5 +1,8 @@
 import './index.css'
 
-
-
-CSS.paintWorklet.addModule('paint-worklets/bezier-curves.js')
+(async () => {
+  if (CSS['paintWorklet'] === undefined) {
+		await import('https://unpkg.com/css-paint-polyfill')
+	}
+  CSS.paintWorklet.addModule('paint-worklets/quadratic-curve.js')
+})()

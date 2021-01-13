@@ -4,7 +4,7 @@ import css from 'rollup-plugin-css-only'
 export default {
   input: [
     'app/index.js',
-    'app/paint-worklets/bezier-curves.js'
+    'app/paint-worklets/quadratic-curve.js'
   ],
   output: {
     dir: 'dist',
