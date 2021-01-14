@@ -9,7 +9,6 @@ registerPaint('bezier-curves', class {
     ]
   }
   paint (ctx, paintSize, props) {
-    console.log(props.get('--stroke-width'))
     const strokeWidth = checkInputVariable(props, '--stroke-width', 2, '<length>')
     const strokeColor = checkInputVariable(props, '--stroke-color', '#111')
     const helperPointRadius = checkInputVariable(props, '--helper-point-radius', 10, '<length>')

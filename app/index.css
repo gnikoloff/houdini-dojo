@@ -1,12 +1,9 @@
-h1 {
+:root {
   --stroke-width: 1;
   --stroke-color: orange;
   --helper-point-radius: 10;
   --helper-point-background-color: red;
   --helper-point-accent-color: yellow;
-
-  height: 200px;
-  background: paint(bezier-curves);
 }
 
 .demo {
@@ -28,7 +25,14 @@ h1 {
   bottom: 0;
   left: 0;
   border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#quadratic-preview {
   background-image: paint(bezier-curves);
+}
+
+#spiral-preview {
+  background-image: paint(spiral);
 }
 
 .demo-controls {
