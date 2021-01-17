@@ -74,7 +74,7 @@ function init() {
       const $input = document.createElement('input')
       if (value.syntax === '<number>') {
         const minValue = value.minValue || 1
-        const maxValue = value.maxValue || 50
+        const maxValue = value.maxValue || 100
 
         $input.setAttribute('type', 'range')
         $input.setAttribute('min', minValue)
@@ -82,6 +82,7 @@ function init() {
       } else if (value.syntax === '<color>') {
         $input.setAttribute('type', 'color')
       }
+      $demoPreview.style.setProperty(key, value.initialValue)
       $input.setAttribute('id', id)
       $input.setAttribute('name', id)
       $input.setAttribute('value', value.initialValue)
@@ -98,5 +99,7 @@ function init() {
       $wrapperEl.appendChild($inputWrapper)
       $demoControls.appendChild($wrapperEl)
     }
+
+    $demoPreview.style.setProperty('background-image', `paint(${description.id})`)
   }
 }
