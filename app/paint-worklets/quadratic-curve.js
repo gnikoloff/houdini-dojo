@@ -2,7 +2,7 @@
 
 import { checkInputVariable } from '../helpers'
 
-const WORKLET_NAME = 'bezier-curves'
+const WORKLET_NAME = 'quadratic-curve'
 
 registerPaint(
   WORKLET_NAME,
