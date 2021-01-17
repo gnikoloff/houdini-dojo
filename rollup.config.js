@@ -1,13 +1,13 @@
-import copy from 'rollup-plugin-copy-watch'
+import json from '@rollup/plugin-json'
 import css from 'rollup-plugin-css-only'
 
-const sharedPlugins = []
+const sharedPlugins = [json()]
 
 export default [
   {
     input: 'app/index.js',
     output: { file: 'dist/index.js' },
-    plugins: [css({ output: 'index.css' })],
+    plugins: [css({ output: 'index.css' }), ...sharedPlugins],
   },
   {
     input: 'app/paint-worklets/quadratic-curve.js',
