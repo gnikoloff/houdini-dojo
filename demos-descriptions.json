@@ -3,32 +3,34 @@
     "title": "Quadratic Curve",
     "id": "quadratic-curve",
     "cssVariables": {
-      "--bezier-curves-number-points": {
+      "--quadratic-curve-number-points": {
         "syntax": "<number>",
         "inherits": false,
         "initialValue": 6
       },
-      "--bezier-curves-stroke-width": {
+      "--quadratic-curve-stroke-width": {
         "syntax": "<number>",
         "inherits": false,
-        "initialValue": 3
+        "initialValue": 3,
+        "maxValue": 50
       },
-      "--bezier-curves-stroke-color": {
+      "--quadratic-curve-stroke-color": {
         "syntax": "<color>",
         "inherits": false,
         "initialValue": "#d35400"
       },
-      "--bezier-curves-helper-radius": {
+      "--quadratic-curve-helper-radius": {
         "syntax": "<number>",
         "inherits": false,
-        "initialValue": 5
+        "initialValue": 5,
+        "maxValue": 30
       },
-      "--bezier-curves-helper-background-color": {
+      "--quadratic-curve-helper-background-color": {
         "syntax": "<color>",
         "inherits": false,
         "initialValue": "#c0392b"
       },
-      "--bezier-curves-helper-accent-color": {
+      "--quadratic-curve-helper-accent-color": {
         "syntax": "<color>",
         "inherits": false,
         "initialValue": "#f1c40f"
@@ -39,7 +41,27 @@
     "title": "Deep Sea",
     "id": "deep-sea",
     "cssVariables": {
-      
+      "--deep-sea-bubbles-count": {
+        "syntax": "<number>",
+        "inherits": false,
+        "initialValue": 100
+      },
+      "--deep-sea-grass-count": {
+        "syntax": "<number>",
+        "inherits": false,
+        "initialValue": 100,
+        "maxValue": 300
+      },
+      "--deep-sea-background-color": {
+        "syntax": "<color>",
+        "inherits": false,
+        "initialValue": "#110755"
+      },
+      "--deep-sea-grass-color": {
+        "syntax": "<color>",
+        "inherits": false,
+        "initialValue": "#639c5b"
+      }
     }
   }
 ]
