@@ -1,83 +1,85 @@
-registerPaint('bezier-curves', class {
-  static get inputProperties () {
-    return [
-      '--stroke-width',
-      '--stroke-color',
-      '--helper-point-radius',
-      '--helper-point-background-color',
-      '--helper-point-accent-color'
-    ]
-  }
-  paint (ctx, paintSize, props) {
-    const strokeWidth = checkInputVariable(props, '--stroke-width', 2, '<length>')
-    const strokeColor = checkInputVariable(props, '--stroke-color', '#111')
-    const helperPointRadius = checkInputVariable(props, '--helper-point-radius', 10, '<length>')
-    const helperPointBackgroundColor = checkInputVariable(props, '--helper-point-background-color', '222')
-    const helperPointAccentColor = checkInputVariable(props, '--helper-point-accent-color', 'red')
+/* global registerPaint */
 
-    const padding = paintSize.width * 0.075
-    const drawWidth = paintSize.width - padding * 2
-    const drawHeight = paintSize.height - helperPointRadius * 2
-    const halfHeight = drawHeight / 2
-    const possibleYOffset = drawHeight / 2
-    const stepX = drawWidth / 10
+import { checkInputVariable } from '../helpers'
 
-    const positions = new Array(10)
-      .fill(null)
-      .map((_, i) => [stepX * (i + 1) + padding, halfHeight + (Math.random() * 2 - 1) * possibleYOffset])
+const WORKLET_NAME = 'bezier-curves'
 
-    ctx.lineWidth = strokeWidth
-    ctx.strokeStyle = strokeColor
-    ctx.beginPath()
-    ctx.moveTo(padding, halfHeight)    
-    positions.forEach(([x, y], i, self) => {
-      const nextx = self[i + 1] ? self[i + 1][0] : self[self.length - 1][0]
-      const nexty = self[i + 1] ? self[i + 1][1] : self[self.length - 1][1]
-      const ctrlpx = (x + nextx) / 2
-      const ctrlpy = (y + nexty) / 2
-      ctx.quadraticCurveTo(x, y, ctrlpx, ctrlpy)
-    })
-    ctx.stroke()
-
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)'
-    ctx.lineWidth = 1
-    ctx.beginPath()
-    ctx.moveTo(padding, halfHeight)
-    positions.forEach(([x, y]) => ctx.lineTo(x, y))
-    ctx.stroke()
-
-    {
-      const x = padding
-      const y = halfHeight
-      const radius = helperPointRadius
-      const backgroundColor = helperPointBackgroundColor
-      const accentColor = helperPointAccentColor
-      drawHelperPoint(ctx, { x, y, radius, backgroundColor, accentColor })
-      positions.forEach(([x, y]) => drawHelperPoint(ctx, { x, y, radius, backgroundColor, accentColor }))
+registerPaint(
+  WORKLET_NAME,
+  class {
+    static get inputProperties() {
+      return [
+        `--${WORKLET_NAME}-number-points`,
+        `--${WORKLET_NAME}-stroke-width`,
+        `--${WORKLET_NAME}-stroke-color`,
+        `--${WORKLET_NAME}-helper-radius`,
+        `--${WORKLET_NAME}-helper-background-color`,
+        `--${WORKLET_NAME}-helper-accent-color`,
+      ]
     }
 
-  }
-})
-
-/* ------ Helpers ------ */
-function checkInputVariable (props, name, defaultValue, type) {
-  const inputVariable = props.get(name)
-  if (inputVariable.length) {
-    if (type === '<length>') {
-      return parseInt(inputVariable.toString())
+    static get inputArguments() {
+      return ['*']
     }
-    return inputVariable
-  } else {
-    return defaultValue
-  }
-}
 
-function drawHelperPoint (ctx, { x, y, radius, backgroundColor, accentColor }) {
+    paint(ctx, paintSize, props, args) {
+      const numPoints = checkInputVariable(props, `--${WORKLET_NAME}-number-points`, 3, 'number')
+      const strokeWidth = checkInputVariable(props, `--${WORKLET_NAME}-stroke-width`, 3, 'number')
+      const strokeColor = checkInputVariable(props, `--${WORKLET_NAME}-stroke-color`, 'orange', 'color')
+      const helperPointRadius = checkInputVariable(props, `--${WORKLET_NAME}-helper-radius`, 5, 'number')
+      const helperPointBackgroundColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-background-color`, '#c0392b')
+      const helperPointAccentColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-accent-color`, '#f1c40f')
+
+      const padding = paintSize.width * 0.075
+      const drawWidth = paintSize.width - padding * 2
+      const drawHeight = paintSize.height - helperPointRadius * 2
+      const halfHeight = paintSize.height / 2
+      const possibleYOffset = drawHeight / 2
+      const stepX = drawWidth / numPoints
+
+      const positions = new Array(numPoints)
+        .fill(null)
+        .map((_, i) => [stepX * (i + 1) + padding, halfHeight + (Math.random() * 2 - 1) * possibleYOffset])
+
+      ctx.lineWidth = strokeWidth
+      ctx.strokeStyle = strokeColor
+      ctx.beginPath()
+      ctx.moveTo(padding, halfHeight)
+      positions.forEach(([x, y], i, self) => {
+        const nextx = self[i + 1] ? self[i + 1][0] : self[self.length - 1][0]
+        const nexty = self[i + 1] ? self[i + 1][1] : self[self.length - 1][1]
+        const ctrlpx = (x + nextx) / 2
+        const ctrlpy = (y + nexty) / 2
+        ctx.quadraticCurveTo(x, y, ctrlpx, ctrlpy)
+      })
+      ctx.stroke()
+
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)'
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      ctx.moveTo(padding, halfHeight)
+      positions.forEach(([x, y]) => ctx.lineTo(x, y))
+      ctx.stroke()
+
+      {
+        const x = padding
+        const y = halfHeight
+        const radius = helperPointRadius
+        const backgroundColor = helperPointBackgroundColor
+        const accentColor = helperPointAccentColor
+        drawHelperPoint(ctx, { x, y, radius, backgroundColor, accentColor })
+        positions.forEach(([x, y]) => drawHelperPoint(ctx, { x, y, radius, backgroundColor, accentColor }))
+      }
+    }
+  }
+)
+
+function drawHelperPoint(ctx, { x, y, radius, backgroundColor, accentColor }) {
   const halfRadius = radius / 2
 
   ctx.save()
   ctx.translate(x, y)
-  
+
   ctx.fillStyle = backgroundColor
   ctx.beginPath()
   ctx.arc(0, 0, radius, 0, Math.PI * 2)
@@ -87,7 +89,7 @@ function drawHelperPoint (ctx, { x, y, radius, backgroundColor, accentColor }) {
   ctx.globalAlpha = 0.75
   ctx.fillStyle = accentColor
   ctx.beginPath()
-  ctx.arc(0, 0, halfRadius , 0, Math.PI * 2)
+  ctx.arc(0, 0, halfRadius, 0, Math.PI * 2)
   ctx.closePath()
   ctx.fill()
 
