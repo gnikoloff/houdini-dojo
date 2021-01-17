@@ -18,11 +18,7 @@ registerPaint(
       ]
     }
 
-    static get inputArguments() {
-      return ['*']
-    }
-
-    paint(ctx, paintSize, props, args) {
+    paint(ctx, paintSize, props) {
       const numPoints = checkInputVariable(props, `--${WORKLET_NAME}-number-points`, 3, 'number')
       const strokeWidth = checkInputVariable(props, `--${WORKLET_NAME}-stroke-width`, 3, 'number')
       const strokeColor = checkInputVariable(props, `--${WORKLET_NAME}-stroke-color`, 'orange', 'color')
