@@ -1,6 +1,7 @@
 [
   {
     "title": "Quadratic Curve",
+    "id": "quadratic-curve",
     "cssVariables": {
       "--bezier-curves-number-points": {
         "syntax": "<number>",
@@ -32,6 +33,13 @@
         "inherits": false,
         "initialValue": "#f1c40f"
       }
+    }
+  },
+  {
+    "title": "Deep Sea",
+    "id": "deep-sea",
+    "cssVariables": {
+      
     }
   }
 ]

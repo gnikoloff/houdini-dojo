@@ -1,13 +1,14 @@
-import DEMOS_DESCRIPTIONS from './demos-descriptions.json'
+import DEMOS_DESCRIPTIONS from '../demos-descriptions.json'
 import './index.css'
-console.log(DEMOS_DESCRIPTIONS)
 ;(async () => {
   if (CSS.paintWorklet === undefined) {
     await import('https://unpkg.com/css-paint-polyfill')
   }
-  CSS.paintWorklet.addModule('dist/paint-worklets/quadratic-curve.js')
-  CSS.paintWorklet.addModule('dist/paint-worklets/spiral.js')
 })()
+
+DEMOS_DESCRIPTIONS.forEach(({ id }) => {
+  CSS.paintWorklet.addModule(`dist/paint-worklets/${id}.js`)
+})
 
 if ('registerProperty' in CSS) {
   for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
@@ -24,12 +25,38 @@ if ('registerProperty' in CSS) {
 document.addEventListener('DOMContentLoaded', init)
 
 function init() {
+  const $demoWrapper = document.getElementsByClassName('demo-wrapper')[0]
   for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
     const description = DEMOS_DESCRIPTIONS[i]
 
-    const $demoEl = document.querySelector(`[data-name="${description.title}"]`)
-    const $demoPreviewEl = $demoEl.getElementsByClassName('demo-preview')[0]
-    const $controlsWrapperEl = $demoEl.getElementsByClassName('demo-control-wrapper')[0]
+    const $demoEl = document.createElement('div')
+    $demoEl.classList.add('demo')
+    $demoWrapper.appendChild($demoEl)
+
+    const $demoTitle = document.createElement('h2')
+    $demoTitle.innerText = description.title
+    $demoTitle.classList.add('demo-title')
+    $demoEl.appendChild($demoTitle)
+
+    const $demoPreviewWrapper = document.createElement('div')
+    $demoPreviewWrapper.classList.add('demo-preview-wrapper')
+
+    const $demoPreview = document.createElement('div')
+    $demoPreview.dataset.name = description.title
+    $demoPreview.classList.add('demo-preview')
+    $demoPreviewWrapper.appendChild($demoPreview)
+
+    const $demoControls = document.createElement('div')
+    $demoControls.classList.add('demo-controls')
+
+    const $form = document.createElement('form')
+    $form.setAttribute('action', '')
+    $form.classList.add('demo-control-wrapper')
+    $demoControls.appendChild($form)
+
+    $demoEl.appendChild($demoPreviewWrapper)
+
+    $demoEl.appendChild($demoControls)
 
     for (const [key, value] of Object.entries(description.cssVariables)) {
       const id = key.substring(2)
@@ -59,7 +86,7 @@ function init() {
       $input.setAttribute('name', id)
       $input.setAttribute('value', value.initialValue)
       $input.addEventListener('change', function () {
-        $demoPreviewEl.style.setProperty(key, this.value)
+        $demoPreview.style.setProperty(key, this.value)
         $output.innerText = this.value
       })
 
@@ -69,7 +96,7 @@ function init() {
       $inputWrapper.appendChild($input)
       $inputWrapper.appendChild($output)
       $wrapperEl.appendChild($inputWrapper)
-      $controlsWrapperEl.appendChild($wrapperEl)
+      $demoControls.appendChild($wrapperEl)
     }
   }
 }

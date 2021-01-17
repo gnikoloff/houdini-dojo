@@ -1,6 +1,8 @@
 import json from '@rollup/plugin-json'
 import css from 'rollup-plugin-css-only'
 
+import DEMOS_DESCRIPTIONS from './demos-descriptions.json'
+
 const sharedPlugins = [json()]
 
 export default [
@@ -9,20 +11,12 @@ export default [
     output: { file: 'dist/index.js' },
     plugins: [css({ output: 'index.css' }), ...sharedPlugins],
   },
-  {
-    input: 'app/paint-worklets/quadratic-curve.js',
+  ...DEMOS_DESCRIPTIONS.map(({ id }) => ({
+    input: `app/paint-worklets/${id}.js`,
     output: {
-      file: 'dist/paint-worklets/quadratic-curve.js',
+      file: `dist/paint-worklets/${id}.js`,
       format: 'iife',
     },
     plugins: sharedPlugins,
-  },
-  {
-    input: 'app/paint-worklets/spiral.js',
-    output: {
-      file: 'dist/paint-worklets/spiral.js',
-      format: 'iife',
-    },
-    plugins: sharedPlugins,
-  },
+  })),
 ]
