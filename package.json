@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/gnikoloff/houdini-dojo#readme",
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-config-standard": "^16.0.2",
