@@ -6,7 +6,7 @@ export function checkInputVariable(props, name, defaultValue, defaultType) {
   const inputVariable = props.get(name)
   if (inputVariable instanceof CSSUnparsedValue) {
     if (inputVariable.length) {
-      if (defaultType === 'number') {
+      if (defaultType === 'number' || defaultValue === 'percentage') {
         return parseInt(inputVariable.toString())
       } else {
         return inputVariable.toString()
@@ -14,9 +14,7 @@ export function checkInputVariable(props, name, defaultValue, defaultType) {
     }
     return defaultValue
   } else if (inputVariable instanceof CSSUnitValue) {
-    if (inputVariable.unit === 'number') {
-      return inputVariable.value
-    }
+    return inputVariable.value
   } else if (inputVariable instanceof CSSStyleValue) {
     return inputVariable
   } else {

@@ -44,7 +44,7 @@
       "--deep-sea-bubbles-count": {
         "syntax": "<number>",
         "inherits": false,
-        "initialValue": 100
+        "initialValue": 36
       },
       "--deep-sea-grass-count": {
         "syntax": "<number>",
@@ -61,6 +61,43 @@
         "syntax": "<color>",
         "inherits": false,
         "initialValue": "#639c5b"
+      }
+    }
+  },
+  {
+    "title": "Depth Spiral",
+    "id": "depth-spiral",
+    "cssVariables": {
+      "--depth-spiral-min-radius": {
+        "syntax": "<percentage>",
+        "inherits": false,
+        "initialValue": "10%"
+      },
+      "--depth-spiral-max-radius": {
+        "syntax": "<percentage>",
+        "inherits": false,
+        "initialValue": "100%"
+      },
+      "--depth-spiral-num-points": {
+        "syntax": "<number>",
+        "inherits": false,
+        "initialValue": 200
+      },
+      "--depth-spiral-angle": {
+        "syntax": "<angle>",
+        "inherits": false,
+        "initialValue": "175deg",
+        "maxValue": 900
+      },
+      "--depth-spiral-line-width": {
+        "syntax": "<number>",
+        "inherits": false,
+        "initialValue": 1
+      },
+      "--depth-spiral-color": {
+        "syntax": "<color>",
+        "inherits": false,
+        "initialValue": "#aaaaaa"
       }
     }
   }

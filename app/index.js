@@ -14,9 +14,12 @@ if ('registerProperty' in CSS) {
   for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
     const description = DEMOS_DESCRIPTIONS[i]
     for (const [key, value] of Object.entries(description.cssVariables)) {
+      const { syntax, inherits, initialValue } = value
       CSS.registerProperty({
         name: key,
-        ...value,
+        syntax,
+        inherits,
+        initialValue,
       })
     }
   }
@@ -59,6 +62,7 @@ function init() {
     $demoEl.appendChild($demoControls)
 
     for (const [key, value] of Object.entries(description.cssVariables)) {
+      const { syntax } = value
       const id = key.substring(2)
 
       const $wrapperEl = document.createElement('div')
@@ -72,24 +76,32 @@ function init() {
       $output.innerText = value.initialValue
 
       const $input = document.createElement('input')
-      if (value.syntax === '<number>') {
+      if (syntax === '<number>' || syntax === '<angle>' || syntax === '<percentage>') {
         const minValue = value.minValue || 1
         const maxValue = value.maxValue || 100
 
         $input.setAttribute('type', 'range')
         $input.setAttribute('min', minValue)
         $input.setAttribute('max', maxValue)
-      } else if (value.syntax === '<color>') {
+      } else if (syntax === '<color>') {
         $input.setAttribute('type', 'color')
       }
       $demoPreview.style.setProperty(key, value.initialValue)
       $input.setAttribute('id', id)
       $input.setAttribute('name', id)
-      $input.setAttribute('value', value.initialValue)
+      const initialValue = syntax === '<angle' ? parseInt(value.initialValue) : value.initialValue
+      $input.setAttribute('value', initialValue)
 
       function onInput() {
-        $demoPreview.style.setProperty(key, this.value)
-        $output.innerText = this.value
+        let value = this.value
+        if (syntax === '<angle>') {
+          value = `${value}deg`
+        } else if (syntax === '<percentage>') {
+          value = `${value}%`
+        }
+        console.log(value)
+        $demoPreview.style.setProperty(key, value)
+        $output.innerText = value
       }
       $input.addEventListener('change', onInput)
       $input.addEventListener('input', onInput)
