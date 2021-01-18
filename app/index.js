@@ -86,10 +86,13 @@ function init() {
       $input.setAttribute('id', id)
       $input.setAttribute('name', id)
       $input.setAttribute('value', value.initialValue)
-      $input.addEventListener('change', function () {
+
+      function onInput() {
         $demoPreview.style.setProperty(key, this.value)
         $output.innerText = this.value
-      })
+      }
+      $input.addEventListener('change', onInput)
+      $input.addEventListener('input', onInput)
 
       $wrapperEl.appendChild($label)
       const $inputWrapper = document.createElement('div')
