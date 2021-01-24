@@ -1,9 +1,11 @@
 import json from '@rollup/plugin-json'
 import css from 'rollup-plugin-css-only'
+import copy from 'rollup-plugin-copy'
+import cleanup from 'rollup-plugin-cleanup'
 
 import DEMOS_DESCRIPTIONS from './demos-descriptions.json'
 
-const sharedPlugins = [json()]
+const sharedPlugins = [json(), !process.env.ROLLUP_WATCH && cleanup()].filter(Boolean)
 
 export default [
   {
@@ -12,11 +14,16 @@ export default [
     plugins: [css({ output: 'index.css' }), ...sharedPlugins],
   },
   ...DEMOS_DESCRIPTIONS.map(({ id }) => ({
-    input: `app/paint-worklets/${id}.js`,
+    input: `app/paint-worklets/${id}/index.js`,
     output: {
-      file: `dist/paint-worklets/${id}.js`,
+      file: `dist/paint-worklets/${id}/index.js`,
       format: 'iife',
     },
-    plugins: sharedPlugins,
+    plugins: [
+      ...sharedPlugins,
+      copy({
+        targets: [{ src: `app/paint-worklets/${id}/package.json`, dest: `dist/paint-worklets/${id}` }],
+      }),
+    ],
   })),
 ]
