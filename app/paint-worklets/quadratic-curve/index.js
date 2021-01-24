@@ -1,6 +1,6 @@
 /* global registerPaint */
 
-import { checkInputVariable } from '../helpers'
+import { checkInputVariable } from '../../helpers'
 
 const WORKLET_NAME = 'quadratic-curve'
 

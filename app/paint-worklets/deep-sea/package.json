@@ -1,0 +1,24 @@
+{
+  "name": "@houdini-css-paint/deep-sea",
+  "version": "0.0.6",
+  "description": "CSS Paintlet for drawing stylised 2D sea floor",
+  "main": "index.js",
+  "keywords": [
+    "houdini",
+    "css",
+    "css-houdini",
+    "PaintWorklet",
+    "paint",
+    "worklet"
+  ],
+  "author": "Georgi Nikolov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnikoloff/houdini-dojo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gnikoloff/houdini-dojo/issues"
+  },
+  "homepage": "https://github.com/gnikoloff/houdini-dojo#readme"
+}

@@ -7,7 +7,7 @@ import './index.css'
 })()
 
 DEMOS_DESCRIPTIONS.forEach(({ id }) => {
-  CSS.paintWorklet.addModule(`dist/paint-worklets/${id}.js`)
+  CSS.paintWorklet.addModule(`dist/paint-worklets/${id}/index.js`)
 })
 
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
