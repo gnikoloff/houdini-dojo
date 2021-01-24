@@ -10,16 +10,22 @@ DEMOS_DESCRIPTIONS.forEach(({ id }) => {
   CSS.paintWorklet.addModule(`dist/paint-worklets/${id}.js`)
 })
 
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
 if ('registerProperty' in CSS) {
   for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
     const description = DEMOS_DESCRIPTIONS[i]
     for (const [key, value] of Object.entries(description.cssVariables)) {
-      const { syntax, inherits, initialValue } = value
+      const { syntax, inherits, initialValue, darkModeInitialValue } = value
+      let realInitial = initialValue
+      if (isDarkMode && darkModeInitialValue) {
+        realInitial = darkModeInitialValue
+      }
       CSS.registerProperty({
         name: key,
         syntax,
         inherits,
-        initialValue,
+        initialValue: realInitial,
       })
     }
   }
@@ -97,6 +103,7 @@ function init() {
       $input.setAttribute('id', id)
       $input.setAttribute('name', id)
       const initialValue = syntax === '<angle>' ? parseInt(value.initialValue) : value.initialValue
+
       $input.setAttribute('value', initialValue)
 
       function onInput() {

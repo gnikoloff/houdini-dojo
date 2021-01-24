@@ -19,6 +19,12 @@
         "inherits": false,
         "initialValue": "#d35400"
       },
+      "--quadratic-curve-helper-stroke-color": {
+        "syntax": "<color>",
+        "inherits": false,
+        "initialValue": "#999999",
+        "darkModeInitialValue": "#333333"
+      },
       "--quadratic-curve-helper-radius": {
         "syntax": "<number>",
         "inherits": false,
