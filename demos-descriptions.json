@@ -38,6 +38,43 @@
     }
   },
   {
+    "title": "Loop",
+    "id": "loop",
+    "cssVariables": {
+      "--loop-number-sides": {
+        "syntax": "<number>",
+        "inherits": false,
+        "initialValue": 6,
+        "minValue": 2,
+        "maxValue": 24
+      },
+      "--loop-rotation": {
+        "syntax": "<angle>",
+        "inherits": false,
+        "initialValue": "0deg",
+        "minValue": 0,
+        "maxValue": 360
+      },
+      "--loop-size": {
+        "syntax": "<percentage>",
+        "inherits": false,
+        "initialValue": "100%",
+        "maxValue": 500
+      },
+      "--loop-stroke-color": {
+        "syntax": "<color>",
+        "inherits": false,
+        "initialValue": "#444444"
+      },
+      "--loop-stroke-width": {
+        "syntax": "<number>",
+        "inherits": false,
+        "initialValue": 1,
+        "minValue": 1
+      }
+    }
+  },
+  {
     "title": "Deep Sea",
     "id": "deep-sea",
     "cssVariables": {
@@ -61,6 +98,11 @@
         "syntax": "<color>",
         "inherits": false,
         "initialValue": "#639c5b"
+      },
+      "--deep-sea-grass-height": {
+        "syntax": "<percentage>",
+        "inherits": false,
+        "initialValue": "50%"
       }
     }
   },
@@ -86,13 +128,14 @@
       "--depth-spiral-angle": {
         "syntax": "<angle>",
         "inherits": false,
-        "initialValue": "175deg",
+        "initialValue": "183deg",
         "maxValue": 900
       },
       "--depth-spiral-line-width": {
         "syntax": "<number>",
         "inherits": false,
-        "initialValue": 1
+        "initialValue": 1,
+        "maxValue": 5
       },
       "--depth-spiral-color": {
         "syntax": "<color>",

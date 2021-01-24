@@ -77,23 +77,26 @@ function init() {
       $label.innerHTML = key
 
       const $output = document.createElement('div')
+      $output.classList.add('output')
       $output.innerText = value.initialValue
 
       const $input = document.createElement('input')
       if (syntax === '<number>' || syntax === '<angle>' || syntax === '<percentage>') {
         const minValue = value.minValue || 1
         const maxValue = value.maxValue || 100
+        const step = value.step || 1
 
         $input.setAttribute('type', 'range')
         $input.setAttribute('min', minValue)
         $input.setAttribute('max', maxValue)
+        $input.setAttribute('step', step)
       } else if (syntax === '<color>') {
         $input.setAttribute('type', 'color')
       }
       $demoPreview.style.setProperty(key, value.initialValue)
       $input.setAttribute('id', id)
       $input.setAttribute('name', id)
-      const initialValue = syntax === '<angle' ? parseInt(value.initialValue) : value.initialValue
+      const initialValue = syntax === '<angle>' ? parseInt(value.initialValue) : value.initialValue
       $input.setAttribute('value', initialValue)
 
       function onInput() {
@@ -103,7 +106,6 @@ function init() {
         } else if (syntax === '<percentage>') {
           value = `${value}%`
         }
-        console.log(value)
         $demoPreview.style.setProperty(key, value)
         $output.innerText = value
       }
