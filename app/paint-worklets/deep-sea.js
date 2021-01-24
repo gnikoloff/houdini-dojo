@@ -13,6 +13,7 @@ registerPaint(
         `--${WORKLET_NAME}-grass-count`,
         `--${WORKLET_NAME}-background-color`,
         `--${WORKLET_NAME}-grass-color`,
+        `--${WORKLET_NAME}-grass-height`,
       ]
     }
 
@@ -21,6 +22,7 @@ registerPaint(
       const grassCount = checkInputVariable(props, `--${WORKLET_NAME}-grass-count`, 100, 'number')
       const backgroundColor = checkInputVariable(props, `--${WORKLET_NAME}-background-color`, 'rgb(106, 176, 76)', 'color')
       const grassColor = checkInputVariable(props, `--${WORKLET_NAME}-grass-color`, '#639c5b', 'color')
+      const grassHeight = checkInputVariable(props, `--${WORKLET_NAME}-grass-height`, 60, 'percentage')
 
       ctx.fillStyle = backgroundColor
       ctx.fillRect(0, 0, paintSize.width, paintSize.height)
@@ -60,8 +62,9 @@ registerPaint(
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, paintSize.width, paintSize.height)
 
+      const grassHeightPercentage = grassHeight / 100
       for (let i = 0; i < grassCount; i++) {
-        const maxHeight = paintSize.height * (0.1 + Math.random() * 0.65)
+        const maxHeight = paintSize.height * (grassHeightPercentage + Math.random() * 0.25)
         const maxOffsetX = (Math.random() * 2 - 1) * 12
         const x = Math.random() * paintSize.width
         const lineSegments = Math.round(4 + Math.random() * 5)
