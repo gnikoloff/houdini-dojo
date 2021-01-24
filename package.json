@@ -1,22 +1,24 @@
 {
   "name": "houdini-dojo",
   "version": "1.0.0",
-  "description": "Playground to explore houdini paint API",
-  "main": "index.js",
+  "description": "Playground to explore Houdini Paint API",
   "scripts": {
     "watch": "rollup -c -w",
+    "build": "rollup -c",
     "serve": "http-server",
-    "start": "run-p watch serve"
+    "start:dev": "run-p watch serve",
+    "start": "run-p build serve"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gnikoloff/houdini-dojo.git"
   },
   "keywords": [
-    "houdini"
+    "houdini",
+    "css paint"
   ],
   "author": "Georgi Nikolov",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gnikoloff/houdini-dojo/issues"
   },
