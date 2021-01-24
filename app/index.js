@@ -42,10 +42,32 @@ function init() {
     $demoElWrapper.classList.add('demo-el-wrapper')
     $demoWrapper.appendChild($demoElWrapper)
 
+    const $demoTitleWrapper = document.createElement('div')
+    $demoTitleWrapper.classList.add('demo-title-wrapper')
+
     const $demoTitle = document.createElement('h2')
     $demoTitle.innerText = description.title
     $demoTitle.classList.add('demo-title')
-    $demoElWrapper.appendChild($demoTitle)
+    $demoTitleWrapper.appendChild($demoTitle)
+
+    const $linksWrapper = document.createElement('div')
+
+    const $npmLink = document.createElement('a')
+    $npmLink.classList.add('code-link')
+    $npmLink.setAttribute('href', `https://www.npmjs.com/package/@houdini-css-paint/${description.id}`)
+    $npmLink.setAttribute('target', '_blank')
+    $npmLink.innerText = 'npm link'
+    $linksWrapper.appendChild($npmLink)
+
+    const $unpckgLink = document.createElement('a')
+    $unpckgLink.classList.add('code-link')
+    $unpckgLink.setAttribute('href', `https://unpkg.com/@houdini-css-paint/${description.id}/index.js`)
+    $unpckgLink.setAttribute('target', '_blank')
+    $unpckgLink.innerText = 'unpckg link'
+    $linksWrapper.appendChild($unpckgLink)
+
+    $demoTitleWrapper.appendChild($linksWrapper)
+    $demoElWrapper.appendChild($demoTitleWrapper)
 
     const $demoEl = document.createElement('div')
     $demoEl.classList.add('demo')

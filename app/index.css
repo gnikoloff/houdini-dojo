@@ -45,8 +45,45 @@ body {
 }
 
 .demo-title {
+  margin-right: 24px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.85);
+}
+
+.demo-title-wrapper {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.code-link {
+  margin-right: 12px;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #111;
+  transition: background 0.175s ease, color 0.175s ease;
+}
+.code-link:hover {
+  background: #111;
+  color: white;
+}
+@media (prefers-color-scheme: dark) {
+  .code-link {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  .code-link:hover {
+    background: white;
+    color: #111;
+  }
+}
+.code-link:last-of-type {
+  margin-right: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -133,7 +170,13 @@ h1 {
 
 .intro {
   padding: 1.5rem 0 1rem 0;
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.12); */
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  .intro {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
 }
 
 .github-link {
@@ -185,4 +228,16 @@ blockquote {
 
 .output {
   font-family: monospace;
+}
+
+.footer-demo {
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 900px) {
+  .footer-demo {
+    display: flex;
+    justify-content: space-between;
+  }
 }
