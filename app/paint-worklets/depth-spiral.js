@@ -33,7 +33,12 @@ registerPaint(
 
       ctx.strokeStyle = spiralColor
       ctx.lineWidth = spiralLineWidth
+
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+
       for (let i = 0; i < pointsCount; i++) {
+        ctx.globalAlpha = i / pointsCount
         const radius = minRadius + i * stepRadius
         const x = paintSize.width / 2 + Math.sin(i * step) * radius
         const y = paintSize.height / 2 + Math.cos(i * step) * radius
