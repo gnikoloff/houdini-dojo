@@ -37,6 +37,8 @@ registerPaint(
         .fill(null)
         .map((_, i) => [stepX * (i + 1) + padding, halfHeight + (Math.random() * 2 - 1) * possibleYOffset])
 
+      ctx.lineCap = 'round'
+
       ctx.lineWidth = strokeWidth
       ctx.strokeStyle = strokeColor
       ctx.beginPath()
