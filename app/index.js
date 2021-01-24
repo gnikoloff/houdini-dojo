@@ -32,14 +32,18 @@ function init() {
   for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
     const description = DEMOS_DESCRIPTIONS[i]
 
-    const $demoEl = document.createElement('div')
-    $demoEl.classList.add('demo')
-    $demoWrapper.appendChild($demoEl)
+    const $demoElWrapper = document.createElement('article')
+    $demoElWrapper.classList.add('demo-el-wrapper')
+    $demoWrapper.appendChild($demoElWrapper)
 
     const $demoTitle = document.createElement('h2')
     $demoTitle.innerText = description.title
     $demoTitle.classList.add('demo-title')
-    $demoEl.appendChild($demoTitle)
+    $demoElWrapper.appendChild($demoTitle)
+
+    const $demoEl = document.createElement('div')
+    $demoEl.classList.add('demo')
+    $demoElWrapper.appendChild($demoEl)
 
     const $demoPreviewWrapper = document.createElement('div')
     $demoPreviewWrapper.classList.add('demo-preview-wrapper')
