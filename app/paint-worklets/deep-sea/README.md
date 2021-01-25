@@ -8,7 +8,7 @@ Demo Page - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-dojo
 
 ## 1. Load the Worklet
 
-Using CDN is the easiest way to add any of the Worklets. Just click on the "UNPCKG Link" on any of the demos from the project link, copy the address and load it like this:
+Using CDN is the easiest way to add this Worklet:
 
 ```
 if ('paintWorklet' in CSS) {
@@ -18,7 +18,7 @@ if ('paintWorklet' in CSS) {
 
 ## 2. Polyfill
 
-To add support for all moder browsers, you can load the worklet with [css-paint-polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill) fallback.
+To add support for all modern browsers, you can load the worklet with [css-paint-polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill) fallback.
 
 ```
 <script>
@@ -42,6 +42,8 @@ To use this Paintlet after you have succesffuly loaded it, you need to add `back
   --deep-sea-background-color: #110755;
   --deep-sea-grass-color: #639c5b;
   --deep-sea-grass-height: 50%;
+
+  background-image: paint(deep-sea);
 }
 ```
 

@@ -32,7 +32,10 @@ export default [
     plugins: [
       ...sharedPlugins,
       copy({
-        targets: [{ src: `app/paint-worklets/${id}/package.json`, dest: `dist/paint-worklets/${id}` }],
+        targets: [
+          { src: `app/paint-worklets/${id}/package.json`, dest: `dist/paint-worklets/${id}` },
+          { src: `app/paint-worklets/${id}/README.md`, dest: `dist/paint-worklets/${id}` },
+        ],
       }),
     ],
   })),
