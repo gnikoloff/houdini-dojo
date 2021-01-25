@@ -6,6 +6,8 @@ I wrote some demos utilising the new CSS Paint API. I ported some of my [old can
 
 Project link - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-dojo.georgi-nikolov.com/)
 
+![CSS Paint Dojo export](https://css-houdini-dojo.georgi-nikolov.com/houdini-dojo-export.png)
+
 ## 1. Load the Worklet
 
 Using CDN is the easiest way to add any of the Worklets. Just click on the "UNPCKG Link" on any of the demos from the project link, copy the address and load it like this:
@@ -33,6 +35,6 @@ To add support for all moder browsers, you can load the worklet with [css-paint-
 
 ## 3. Using the Worklet
 
-To use any of the worklets after you have loaded them, you need to add `paint(<worklet-name>)` as a CSS `background-image` property to any valid HTML element on your page. You can reference which CSS custom properties each Worklet supports in the project page, so you can change and customise them to your liking.
+To use any of the worklets after you have loaded them, you need to add `paint(<worklet-name>)` as a CSS `background-image` property to any valid HTML element on your page. You can control their appearance just like any other regular image referenced in CSS with properties such as `background-size`, `background-repeat`, `background-position` and so on.
 
-##### All CSS Properties have fallbacks in case you don't provide any, so you can just plug and play the demos on any HTML element.
+Each Worklet comes with predefined values (please refer to the project link). You have the power to overwrite any of them using CSS custom properties (variables).
