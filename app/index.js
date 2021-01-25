@@ -90,7 +90,6 @@ function init() {
 
     $demoEl.appendChild($demoControls)
 
-    let idx = 0
     for (const [key, value] of Object.entries(description.cssVariables)) {
       const { syntax } = value
       const id = key.substring(2)
@@ -126,12 +125,6 @@ function init() {
 
       $input.setAttribute('value', initialValue)
 
-      if (idx === 0) {
-        // setTimeout(() => {
-        //   $demoPreview.style.setProperty(key, initialValue)
-        // }, 1000)
-      }
-
       function onInput() {
         let value = this.value
         if (syntax === '<angle>') {
@@ -152,8 +145,6 @@ function init() {
       $inputWrapper.appendChild($output)
       $wrapperEl.appendChild($inputWrapper)
       $demoControls.appendChild($wrapperEl)
-
-      idx++
     }
   }
 }

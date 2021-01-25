@@ -20,7 +20,7 @@ registerPaint(
     paint(ctx, paintSize, props) {
       const bubblesCount = checkInputVariable(props, `--${WORKLET_NAME}-bubbles-count`, 100, 'number')
       const grassCount = checkInputVariable(props, `--${WORKLET_NAME}-grass-count`, 100, 'number')
-      const backgroundColor = checkInputVariable(props, `--${WORKLET_NAME}-background-color`, 'rgb(106, 176, 76)', 'color')
+      const backgroundColor = checkInputVariable(props, `--${WORKLET_NAME}-background-color`, '#6ab04c', 'color')
       const grassColor = checkInputVariable(props, `--${WORKLET_NAME}-grass-color`, '#639c5b', 'color')
       const grassHeight = checkInputVariable(props, `--${WORKLET_NAME}-grass-height`, 60, 'percentage')
 
