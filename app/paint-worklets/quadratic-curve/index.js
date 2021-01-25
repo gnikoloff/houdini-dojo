@@ -23,10 +23,10 @@ registerPaint(
       const numPoints = checkInputVariable(props, `--${WORKLET_NAME}-number-points`, 3, 'number')
       const strokeWidth = checkInputVariable(props, `--${WORKLET_NAME}-stroke-width`, 3, 'number')
       const strokeColor = checkInputVariable(props, `--${WORKLET_NAME}-stroke-color`, 'orange', 'color')
-      const helperStrokeColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-stroke-color`, 'rgba(0, 0, 0, 0.15)')
+      const helperStrokeColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-stroke-color`, 'rgba(0, 0, 0, 0.15)', 'color')
       const helperPointRadius = checkInputVariable(props, `--${WORKLET_NAME}-helper-radius`, 5, 'number')
-      const helperPointBackgroundColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-background-color`, '#c0392b')
-      const helperPointAccentColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-accent-color`, '#f1c40f')
+      const helperPointBackgroundColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-background-color`, '#c0392b', 'color')
+      const helperPointAccentColor = checkInputVariable(props, `--${WORKLET_NAME}-helper-accent-color`, '#f1c40f', 'color')
 
       const padding = paintSize.width * 0.075
       const drawWidth = paintSize.width - padding * 2
