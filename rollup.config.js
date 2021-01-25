@@ -12,7 +12,7 @@ const sharedPlugins = [
   commonjs(),
   json(),
   copy({
-    targets: [{ src: 'houdini-dojo-export.png', dest: 'dist' }],
+    targets: [{ src: 'images/', dest: 'dist' }],
   }),
   !process.env.ROLLUP_WATCH && cleanup(),
 ].filter(Boolean)
