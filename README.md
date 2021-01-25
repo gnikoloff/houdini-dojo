@@ -6,7 +6,7 @@ I wrote some demos utilising the new CSS Paint API. I ported some of my [old can
 
 Project link - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-dojo.georgi-nikolov.com/)
 
-![CSS Paint Dojo export](https://css-houdini-dojo.georgi-nikolov.com/houdini-dojo-export.png)
+![CSS Paint Dojo export](https://css-houdini-dojo.georgi-nikolov.com/images/houdini-dojo-export.png)
 
 ## 1. Load the Worklet
 
