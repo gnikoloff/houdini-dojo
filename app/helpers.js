@@ -4,6 +4,13 @@
 
 export function checkInputVariable(props, name, defaultValue, defaultType) {
   const inputVariable = props.get(name)
+  if (typeof inputVariable === 'string') {
+    if (defaultType === 'color') {
+      return inputVariable
+    } else {
+      return parseInt(inputVariable)
+    }
+  }
   if (inputVariable instanceof CSSUnparsedValue) {
     if (inputVariable.length) {
       if (defaultType === 'number' || defaultValue === 'percentage') {

@@ -1,3 +1,5 @@
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
 import json from '@rollup/plugin-json'
 import css from 'rollup-plugin-css-only'
 import copy from 'rollup-plugin-copy'
@@ -5,7 +7,7 @@ import cleanup from 'rollup-plugin-cleanup'
 
 import DEMOS_DESCRIPTIONS from './demos-descriptions.json'
 
-const sharedPlugins = [json(), !process.env.ROLLUP_WATCH && cleanup()].filter(Boolean)
+const sharedPlugins = [resolve(), commonjs(), json(), !process.env.ROLLUP_WATCH && cleanup()].filter(Boolean)
 
 export default [
   {

@@ -241,3 +241,48 @@ blockquote {
     justify-content: space-between;
   }
 }
+
+:root {
+  --quadratic-curve-number-points: 6;
+  --quadratic-curve-stroke-width: 3;
+  --quadratic-curve-stroke-color: #d35400;
+  --quadratic-curve-helper-stroke-color: #999999;
+  --quadratic-curve-helper-radius: 5;
+  --quadratic-curve-helper-background-color: #c0392b;
+  --quadratic-curve-helper-accent-color: #f1c40f;
+
+  --loop-number-sides: 6;
+  --loop-rotation: 0deg;
+  --loop-size: 100%;
+  --loop-stroke-color: #444444;
+  --loop-stroke-width: 1;
+
+  --deep-sea-bubbles-count: 36;
+  --deep-sea-grass-count: 100;
+  --deep-sea-background-color: #110755;
+  --deep-sea-grass-color: #639c5b;
+  --deep-sea-grass-height: 50%;
+
+  --depth-spiral-min-radius: 10%;
+  --depth-spiral-max-radius: 100%;
+  --depth-spiral-num-points: 200;
+  --depth-spiral-angle: 183deg;
+  --depth-spiral-line-width: 1;
+  --depth-spiral-color: #aaaaaa;
+}
+
+[data-name='Quadratic Curve'] {
+  background-image: paint(quadratic-curve);
+}
+
+[data-name='Loop'] {
+  background-image: paint(loop);
+}
+
+[data-name='Deep Sea'] {
+  background-image: paint(deep-sea);
+}
+
+[data-name='Depth Spiral'] {
+  background-image: paint(depth-spiral);
+}

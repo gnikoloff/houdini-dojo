@@ -8,7 +8,6 @@
     "serve": "http-server",
     "start:dev": "run-p watch serve",
     "start": "run-p build serve",
-
     "publishDeepSea": "cd ./dist/paint-worklets/deep-sea && npm publish --access public",
     "publishDepthSpiral": "cd ./dist/paint-worklets/depth-spiral && npm publish --access public",
     "publishLoop": "cd ./dist/paint-worklets/loop && npm publish --access public",
@@ -41,11 +40,14 @@
     "prettier": "2.2.1",
     "rollup": "^2.36.1",
     "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-copy-watch": "0.0.1",
-    "rollup-plugin-css-only": "^3.1.0"
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "dependencies": {
+    "css-paint-polyfill": "^2.0.0",
     "http-server": "^0.12.3"
   }
 }

@@ -1,39 +1,36 @@
+import 'css-paint-polyfill'
+
 import DEMOS_DESCRIPTIONS from '../demos-descriptions.json'
 import './index.css'
-;(async () => {
-  if (CSS.paintWorklet === undefined) {
-    await import('https://unpkg.com/css-paint-polyfill')
-  }
-})()
-
-DEMOS_DESCRIPTIONS.forEach(({ id }) => {
-  CSS.paintWorklet.addModule(`dist/paint-worklets/${id}/index.js`)
-})
-
-const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-if ('registerProperty' in CSS) {
-  for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
-    const description = DEMOS_DESCRIPTIONS[i]
-    for (const [key, value] of Object.entries(description.cssVariables)) {
-      const { syntax, inherits, initialValue, darkModeInitialValue } = value
-      let realInitial = initialValue
-      if (isDarkMode && darkModeInitialValue) {
-        realInitial = darkModeInitialValue
-      }
-      CSS.registerProperty({
-        name: key,
-        syntax,
-        inherits,
-        initialValue: realInitial,
-      })
-    }
-  }
-}
 
 document.addEventListener('DOMContentLoaded', init)
 
 function init() {
+  DEMOS_DESCRIPTIONS.forEach(({ id }) => {
+    CSS.paintWorklet.addModule(`dist/paint-worklets/${id}/index.js`)
+  })
+
+  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  if ('registerProperty' in CSS) {
+    for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
+      const description = DEMOS_DESCRIPTIONS[i]
+      for (const [key, value] of Object.entries(description.cssVariables)) {
+        const { syntax, inherits, initialValue, darkModeInitialValue } = value
+        let realInitial = initialValue
+        if (isDarkMode && darkModeInitialValue) {
+          realInitial = darkModeInitialValue
+        }
+        CSS.registerProperty({
+          name: key,
+          syntax,
+          inherits,
+          initialValue: realInitial,
+        })
+      }
+    }
+  }
+
   const $demoWrapper = document.getElementsByClassName('demo-wrapper')[0]
   for (let i = 0; i < DEMOS_DESCRIPTIONS.length; i++) {
     const description = DEMOS_DESCRIPTIONS[i]
@@ -93,6 +90,7 @@ function init() {
 
     $demoEl.appendChild($demoControls)
 
+    let idx = 0
     for (const [key, value] of Object.entries(description.cssVariables)) {
       const { syntax } = value
       const id = key.substring(2)
@@ -128,6 +126,12 @@ function init() {
 
       $input.setAttribute('value', initialValue)
 
+      if (idx === 0) {
+        // setTimeout(() => {
+        //   $demoPreview.style.setProperty(key, initialValue)
+        // }, 1000)
+      }
+
       function onInput() {
         let value = this.value
         if (syntax === '<angle>') {
@@ -148,8 +152,8 @@ function init() {
       $inputWrapper.appendChild($output)
       $wrapperEl.appendChild($inputWrapper)
       $demoControls.appendChild($wrapperEl)
-    }
 
-    $demoPreview.style.setProperty('background-image', `paint(${description.id})`)
+      idx++
+    }
   }
 }
