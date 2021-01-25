@@ -7,7 +7,15 @@ import cleanup from 'rollup-plugin-cleanup'
 
 import DEMOS_DESCRIPTIONS from './demos-descriptions.json'
 
-const sharedPlugins = [resolve(), commonjs(), json(), !process.env.ROLLUP_WATCH && cleanup()].filter(Boolean)
+const sharedPlugins = [
+  resolve(),
+  commonjs(),
+  json(),
+  copy({
+    targets: [{ src: 'houdini-dojo-export.png', dest: 'dist' }],
+  }),
+  !process.env.ROLLUP_WATCH && cleanup(),
+].filter(Boolean)
 
 export default [
   {
