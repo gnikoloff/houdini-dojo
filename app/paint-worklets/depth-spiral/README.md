@@ -1,4 +1,4 @@
-# CSS Houdini Deep Sea
+# CSS Houdini Depth Spiral
 
 A CSS Houdini Paintlet to render configurable 2D spiral.
 
