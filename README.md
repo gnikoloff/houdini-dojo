@@ -8,7 +8,8 @@ Project link - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-d
 
 ### NPM Packages
 
-### [tubugl-math](https://github.com/kenjiSpecial/tubugl-math)
+### Deep Sea
+#### A CSS Houdini Paintlet to render stylised 2D sea floor.
 [![NPM version][deep-sea-npm-image]][deep-sea-npm-url] 
 
 [deep-sea-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/deep-sea
