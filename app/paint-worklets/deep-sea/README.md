@@ -2,6 +2,11 @@
 
 A CSS Houdini Paintlet to render stylised 2D sea floor.
 
+[![NPM version][deep-sea-npm-image]][deep-sea-npm-url] 
+
+[deep-sea-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/deep-sea
+[deep-sea-npm-url]: https://www.npmjs.com/package/@houdini-css-paint/deep-sea
+
 ![Deep Sea Paintlet Render](https://css-houdini-dojo.georgi-nikolov.com/images/deep-sea-paintlet-export.png)
 
 Demo Page - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-dojo.georgi-nikolov.com/)
