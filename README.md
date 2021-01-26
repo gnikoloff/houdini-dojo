@@ -8,6 +8,9 @@ Project link - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-d
 
 ### NPM Packages
 
+### [tubugl-math](https://github.com/kenjiSpecial/tubugl-math)
+[![NPM version][deep-sea-npm-image]][deep-sea-npm-url] 
+
 [deep-sea-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/deep-sea
 [deep-sea-npm-url]: https://www.npmjs.com/package/@houdini-css-paint/deep-sea
 
