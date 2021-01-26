@@ -1,6 +1,11 @@
-# CSS Houdini Deep Sea
+# CSS Houdini Loop
 
 A CSS Houdini Paintlet to render configurable 2D loop around a circle.
+
+[![NPM version][loop-npm-image]][loop-npm-url] 
+
+[loop-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/loop
+[loop-npm-url]: https://www.npmjs.com/package/@houdini-css-paint/loop
 
 ![Depth Spiral Paintlet Render](https://css-houdini-dojo.georgi-nikolov.com/images/loop-paintlet-export.png)
 
