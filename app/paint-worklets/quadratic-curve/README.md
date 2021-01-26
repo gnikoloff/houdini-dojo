@@ -1,6 +1,11 @@
-# CSS Houdini Deep Sea
-
+# CSS Houdini Quadratic Curve
+  
 A CSS Houdini Paintlet to render configurable 2D quadratic curve.
+
+[![NPM version][quadratic-curve-npm-image]][quadratic-curve-npm-url] 
+
+[quadratic-curve-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/quadratic-curve
+[quadratic-curve-npm-url]: https://www.npmjs.com/package/@houdini-css-paint/quadratic-curve
 
 ![Depth Spiral Paintlet Render](https://css-houdini-dojo.georgi-nikolov.com/images/quadratic-curve-paintlet-export.png)
 
