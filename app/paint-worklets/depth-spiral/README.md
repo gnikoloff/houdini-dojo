@@ -2,6 +2,11 @@
 
 A CSS Houdini Paintlet to render configurable 2D spiral.
 
+[![NPM version][depth-spiral-npm-image]][depth-spiral-npm-url] 
+
+[depth-spiral-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/depth-spiral
+[depth-spiral-npm-url]: https://www.npmjs.com/package/@houdini-css-paint/depth-spiral
+
 ![Depth Spiral Paintlet Render](https://css-houdini-dojo.georgi-nikolov.com/images/depth-spiral-paintlet-export.png)
 
 Demo Page - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-dojo.georgi-nikolov.com/)
