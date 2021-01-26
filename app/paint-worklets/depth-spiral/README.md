@@ -48,14 +48,14 @@ To use this Paintlet after you have succesffuly loaded it, you need to add `back
 }
 ```
 
-| Property                  | Description                                    | Default Value |
-| ------------------------- | ---------------------------------------------- | ------------- |
-| --depth-spiral-min-radius | Minimum radius of the spiral in percentages    | 10%           |
-| --depth-spiral-max-radius | Maximum radius of the spiral in percentages    | 100%          |
-| --depth-spiral-num-points | How many point to add to the spiral            | 10            |
-| --depth-spiral-angle      | The spiral angle expressed in angles / radians | 0deg          |
-| --depth-spiral-color      | The color to use for stroke                    | #333          |
-| --depth-spiral-line-width | The line-width to use for stroke               | 1             |
+| Property                  | Description                                     | Default Value |
+| ------------------------- | ----------------------------------------------- | ------------- |
+| --depth-spiral-min-radius | Minimum radius of the spiral in percentages     | 10%           |
+| --depth-spiral-max-radius | Maximum radius of the spiral in percentages     | 100%          |
+| --depth-spiral-num-points | How many point to add to the spiral             | 10            |
+| --depth-spiral-angle      | The spiral angle expressed in degrees / radians | 0deg          |
+| --depth-spiral-color      | The color to use for stroke                     | #333          |
+| --depth-spiral-line-width | The line-width to use for stroke                | 1             |
 
 # License
 
