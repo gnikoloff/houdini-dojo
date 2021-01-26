@@ -6,6 +6,12 @@ I wrote some demos utilising the new CSS Paint API. I ported some of my [old can
 
 Project link - [http://css-houdini-dojo.georgi-nikolov.com](http://css-houdini-dojo.georgi-nikolov.com/)
 
+### NPM Packages
+
+[deep-sea-npm-image]: https://img.shields.io/npm/v/@houdini-css-paint/deep-sea
+[deep-sea-npm-url]: https://www.npmjs.com/package/@houdini-css-paint/deep-sea
+
+
 ![CSS Paint Dojo export](https://css-houdini-dojo.georgi-nikolov.com/images/houdini-dojo-export.png)
 
 ## 1. Load the Worklet
